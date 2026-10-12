@@ -184,8 +184,10 @@ export function WordTraceGame() {
   };
 
   const handleShare = async () => {
-    const url = `${window.location.origin}/?n=${number}`;
-    const text = shareText({ number, puzzle, progress, url });
+    const shareUrl = new URL(window.location.href);
+    shareUrl.searchParams.set("n", String(number));
+    shareUrl.hash = "";
+    const text = shareText({ number, puzzle, progress, url: shareUrl.toString() });
     try {
       if (navigator.share && window.matchMedia("(pointer: coarse)").matches) {
         await navigator.share({ text });

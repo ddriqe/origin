@@ -38,8 +38,10 @@ Other scripts:
 ```bash
 npm run validate:puzzles   # checks every bundled puzzle is consistent and fully traceable
 npm run lint
-npm run build && npm start # production build, also served on port 4317
+NEXT_PUBLIC_BASE_PATH=/origin npm run build   # static export in out/
 ```
+
+Production is a static export (`output: 'export'`). Set `NEXT_PUBLIC_BASE_PATH` (and the matching asset prefix) when the site is not served from `/`. GitHub Pages publishes `out/` to [https://ddriqe.github.io/origin/](https://ddriqe.github.io/origin/) on every push to `main`.
 
 ## Adding a puzzle
 
