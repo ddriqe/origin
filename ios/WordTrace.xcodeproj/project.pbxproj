@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0596448BA4FA064275934E05 /* WordTraceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206C73ABC09BE74096A6414 /* WordTraceApp.swift */; };
+		DC6457F2829A7B1C7DA33491 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342B3EA8813688A0E9396E81 /* Theme.swift */; };
+		D6FDD8541296281C8DD41887 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4E14D6DD7D37B98EA97E4 /* LogoView.swift */; };
+		931F953FB7F23BB3BD8ECBF0 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198360408F1680B6F399DB5A /* GameModel.swift */; };
+		FE3F67B10940FF6B30A82C2D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF31601188DE92C8610B46C /* GameView.swift */; };
+		BADC748B9E1FA342DDD45361 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A827124633CF7EAC5A9F779 /* BoardView.swift */; };
+		277D74E7A232A04150389779 /* WordRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2390E827DA8C3D106B04D2 /* WordRowsView.swift */; };
+		B31F0673D9B25541CAC91EDA /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE04053D2E7C7250BA5111B /* HowToPlayView.swift */; };
+		2AECF2FEAEE24058CA69B3E1 /* WinDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31656952E0CC890792FAE50F /* WinDialogView.swift */; };
+		20B7739C12813A2DE9B87661 /* Outfit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C8E61FAA5AF1C237088E005 /* Outfit-Regular.ttf */; };
+		B35C3B2AE4CB996CC79B8A7D /* Outfit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6821423B2148520264216C53 /* Outfit-SemiBold.ttf */; };
+		E1EA95BB44B490D124C95BBF /* Outfit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD398532682EAAAE74D5A9AF /* Outfit-Bold.ttf */; };
+		BC6FAF6AED4C05876C4DEB39 /* Outfit-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 518E5644982E6C7C9251BFA4 /* Outfit-ExtraBold.ttf */; };
+		1B9353BAC097AE7A2BE81842 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 67A3912C3CAF124E0F24036D /* OFL.txt */; };
+		0B5B4F597AD3ACD2F70EAF10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2BAA48C14157B374334CB7C /* Assets.xcassets */; };
+		953552212D71823045241F92 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8C7191863E499AE53043C806 /* PrivacyInfo.xcprivacy */; };
+		02F27CD6ED1004BDCDAFFD75 /* PuzzleSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B282DD135CD470465DB2360 /* PuzzleSelectionTests.swift */; };
+		E078271CA640FFDA54B0F93D /* TraceRulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324D7F318BBC0364119FCC51 /* TraceRulesTests.swift */; };
+		EFEF07AB1FC9D1E3B8595667 /* WordTraceCore in Frameworks */ = {isa = PBXBuildFile; productRef = 654DC9A2DFD342863E7142E6 /* WordTraceCore */; };
+		3552CC73DF631D921CCE7B4B /* WordTraceCore in Frameworks */ = {isa = PBXBuildFile; productRef = 10682F45CE1573C2A7623918 /* WordTraceCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8C0AE2937398B33902919752 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B902F7C2327297FC583709E1;
+			remoteInfo = WordTrace;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		845F65209D19F1E91A3C573D /* WordTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FEED0499F36FF4A8531E2EC /* WordTraceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordTraceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9206C73ABC09BE74096A6414 /* WordTraceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTraceApp.swift; sourceTree = "<group>"; };
+		342B3EA8813688A0E9396E81 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		52C4E14D6DD7D37B98EA97E4 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		198360408F1680B6F399DB5A /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		2CF31601188DE92C8610B46C /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		1A827124633CF7EAC5A9F779 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		8A2390E827DA8C3D106B04D2 /* WordRowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRowsView.swift; sourceTree = "<group>"; };
+		FBE04053D2E7C7250BA5111B /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
+		31656952E0CC890792FAE50F /* WinDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinDialogView.swift; sourceTree = "<group>"; };
+		3C8E61FAA5AF1C237088E005 /* Outfit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Outfit-Regular.ttf"; sourceTree = "<group>"; };
+		6821423B2148520264216C53 /* Outfit-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Outfit-SemiBold.ttf"; sourceTree = "<group>"; };
+		CD398532682EAAAE74D5A9AF /* Outfit-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Outfit-Bold.ttf"; sourceTree = "<group>"; };
+		518E5644982E6C7C9251BFA4 /* Outfit-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Outfit-ExtraBold.ttf"; sourceTree = "<group>"; };
+		67A3912C3CAF124E0F24036D /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		D2BAA48C14157B374334CB7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8C7191863E499AE53043C806 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6B282DD135CD470465DB2360 /* PuzzleSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleSelectionTests.swift; sourceTree = "<group>"; };
+		324D7F318BBC0364119FCC51 /* TraceRulesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRulesTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		659D32D539CC8B16DB24B66A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFEF07AB1FC9D1E3B8595667 /* WordTraceCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E075D17E90CDE7D7BFEE8DBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3552CC73DF631D921CCE7B4B /* WordTraceCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB48CFA305015276AB5620D4 = {
+			isa = PBXGroup;
+			children = (
+				C8A1E76B6CA46DDC89E29CCD /* WordTrace */,
+				8C35799A97AD3FA99FA2EDFE /* WordTraceTests */,
+				692092DE1C1C8624E142B71D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8A1E76B6CA46DDC89E29CCD /* WordTrace */ = {
+			isa = PBXGroup;
+			children = (
+				9206C73ABC09BE74096A6414 /* WordTraceApp.swift */,
+				342B3EA8813688A0E9396E81 /* Theme.swift */,
+				52C4E14D6DD7D37B98EA97E4 /* LogoView.swift */,
+				198360408F1680B6F399DB5A /* GameModel.swift */,
+				2CF31601188DE92C8610B46C /* GameView.swift */,
+				1A827124633CF7EAC5A9F779 /* BoardView.swift */,
+				8A2390E827DA8C3D106B04D2 /* WordRowsView.swift */,
+				FBE04053D2E7C7250BA5111B /* HowToPlayView.swift */,
+				31656952E0CC890792FAE50F /* WinDialogView.swift */,
+				F41EFEB6F4BC2B084B027CE0 /* Fonts */,
+				D2BAA48C14157B374334CB7C /* Assets.xcassets */,
+				8C7191863E499AE53043C806 /* PrivacyInfo.xcprivacy */,
+			);
+			path = WordTrace;
+			sourceTree = "<group>";
+		};
+		F41EFEB6F4BC2B084B027CE0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3C8E61FAA5AF1C237088E005 /* Outfit-Regular.ttf */,
+				6821423B2148520264216C53 /* Outfit-SemiBold.ttf */,
+				CD398532682EAAAE74D5A9AF /* Outfit-Bold.ttf */,
+				518E5644982E6C7C9251BFA4 /* Outfit-ExtraBold.ttf */,
+				67A3912C3CAF124E0F24036D /* OFL.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8C35799A97AD3FA99FA2EDFE /* WordTraceTests */ = {
+			isa = PBXGroup;
+			children = (
+				6B282DD135CD470465DB2360 /* PuzzleSelectionTests.swift */,
+				324D7F318BBC0364119FCC51 /* TraceRulesTests.swift */,
+			);
+			path = WordTraceCore/Tests/WordTraceCoreTests;
+			sourceTree = "<group>";
+		};
+		692092DE1C1C8624E142B71D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				845F65209D19F1E91A3C573D /* WordTrace.app */,
+				9FEED0499F36FF4A8531E2EC /* WordTraceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B902F7C2327297FC583709E1 /* WordTrace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A60603318F4F2D479103030 /* Build configuration list for PBXNativeTarget "WordTrace" */;
+			buildPhases = (
+				160BE0C547DCB68EF3D45C9A /* Sources */,
+				659D32D539CC8B16DB24B66A /* Frameworks */,
+				CDB8418D1440BE458BAE0A24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WordTrace;
+			packageProductDependencies = (
+				654DC9A2DFD342863E7142E6 /* WordTraceCore */,
+			);
+			productName = WordTrace;
+			productReference = 845F65209D19F1E91A3C573D /* WordTrace.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A1E24F1D627678E5C8106C0 /* WordTraceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C210B295701AD5D084AF162 /* Build configuration list for PBXNativeTarget "WordTraceTests" */;
+			buildPhases = (
+				E0BA2C102B37B1466478D8AE /* Sources */,
+				E075D17E90CDE7D7BFEE8DBD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB80D9567C92A148DCB6AC81 /* PBXTargetDependency */,
+			);
+			name = WordTraceTests;
+			packageProductDependencies = (
+				10682F45CE1573C2A7623918 /* WordTraceCore */,
+			);
+			productName = WordTraceTests;
+			productReference = 9FEED0499F36FF4A8531E2EC /* WordTraceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98F54143AB4E86B28C3AFEE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					B902F7C2327297FC583709E1 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					6A1E24F1D627678E5C8106C0 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = B902F7C2327297FC583709E1;
+					};
+				};
+			};
+			buildConfigurationList = 99DE79F146C1665D0B462638 /* Build configuration list for PBXProject "WordTrace" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB48CFA305015276AB5620D4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4D11B0F5C5AB82BB9830ED2B /* XCLocalSwiftPackageReference "WordTraceCore" */,
+			);
+			preferredProjectObjectVersion = 56;
+			productRefGroup = 692092DE1C1C8624E142B71D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B902F7C2327297FC583709E1 /* WordTrace */,
+				6A1E24F1D627678E5C8106C0 /* WordTraceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CDB8418D1440BE458BAE0A24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B5B4F597AD3ACD2F70EAF10 /* Assets.xcassets in Resources */,
+				953552212D71823045241F92 /* PrivacyInfo.xcprivacy in Resources */,
+				20B7739C12813A2DE9B87661 /* Outfit-Regular.ttf in Resources */,
+				B35C3B2AE4CB996CC79B8A7D /* Outfit-SemiBold.ttf in Resources */,
+				E1EA95BB44B490D124C95BBF /* Outfit-Bold.ttf in Resources */,
+				BC6FAF6AED4C05876C4DEB39 /* Outfit-ExtraBold.ttf in Resources */,
+				1B9353BAC097AE7A2BE81842 /* OFL.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		160BE0C547DCB68EF3D45C9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0596448BA4FA064275934E05 /* WordTraceApp.swift in Sources */,
+				DC6457F2829A7B1C7DA33491 /* Theme.swift in Sources */,
+				D6FDD8541296281C8DD41887 /* LogoView.swift in Sources */,
+				931F953FB7F23BB3BD8ECBF0 /* GameModel.swift in Sources */,
+				FE3F67B10940FF6B30A82C2D /* GameView.swift in Sources */,
+				BADC748B9E1FA342DDD45361 /* BoardView.swift in Sources */,
+				277D74E7A232A04150389779 /* WordRowsView.swift in Sources */,
+				B31F0673D9B25541CAC91EDA /* HowToPlayView.swift in Sources */,
+				2AECF2FEAEE24058CA69B3E1 /* WinDialogView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0BA2C102B37B1466478D8AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F27CD6ED1004BDCDAFFD75 /* PuzzleSelectionTests.swift in Sources */,
+				E078271CA640FFDA54B0F93D /* TraceRulesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB80D9567C92A148DCB6AC81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B902F7C2327297FC583709E1 /* WordTrace */;
+			targetProxy = 8C0AE2937398B33902919752 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		41F4B1CEEACC5CF5F3860887 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96B9C483016A0F8F6F2C8217 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8931D22D5340A79AD672B19B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WordTrace;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wordtrace.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCF409BC55A1B31258718FD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WordTrace;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wordtrace.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6649D2CEEA1D031C9DAC60DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wordtrace.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordTrace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WordTrace";
+			};
+			name = Debug;
+		};
+		322E770679E22DCE997AB5EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wordtrace.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordTrace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WordTrace";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		99DE79F146C1665D0B462638 /* Build configuration list for PBXProject "WordTrace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F4B1CEEACC5CF5F3860887 /* Debug */,
+				96B9C483016A0F8F6F2C8217 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A60603318F4F2D479103030 /* Build configuration list for PBXNativeTarget "WordTrace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8931D22D5340A79AD672B19B /* Debug */,
+				FCF409BC55A1B31258718FD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C210B295701AD5D084AF162 /* Build configuration list for PBXNativeTarget "WordTraceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6649D2CEEA1D031C9DAC60DC /* Debug */,
+				322E770679E22DCE997AB5EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		4D11B0F5C5AB82BB9830ED2B /* XCLocalSwiftPackageReference "WordTraceCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = WordTraceCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		654DC9A2DFD342863E7142E6 /* WordTraceCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D11B0F5C5AB82BB9830ED2B /* XCLocalSwiftPackageReference "WordTraceCore" */;
+			productName = WordTraceCore;
+		};
+		10682F45CE1573C2A7623918 /* WordTraceCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D11B0F5C5AB82BB9830ED2B /* XCLocalSwiftPackageReference "WordTraceCore" */;
+			productName = WordTraceCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+}
