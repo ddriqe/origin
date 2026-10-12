@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import { isAdjacent, type Puzzle } from "@/lib/puzzles";
+import type { Puzzle } from "@/lib/puzzles";
 import { lockedCells, type Progress } from "@/lib/game";
 import { colorFor, MISS_COLOR, TRACE_COLOR } from "./palette";
 
@@ -16,8 +16,58 @@ type BoardProps = {
   onTraceStart?: (cell: number) => void;
 };
 
-/** Fraction of a tile, measured from its edge, that is ignored while dragging so corners don't trigger moves. */
-const EDGE_DEADZONE = 0.18;
+/** How far past a tile's centre, in tile widths, the pointer must travel before the next neighbour joins the path. */
+const STEP_THRESHOLD = 0.55;
+
+function stepToward(
+  path: number[],
+  fx: number,
+  fy: number,
+  cols: number,
+  rows: number,
+  canEnter: (cell: number) => boolean,
+): number[] | null {
+  const last = path[path.length - 1];
+  const dx = fx - ((last % cols) + 0.5);
+  const dy = fy - (Math.floor(last / cols) + 0.5);
+  const horizontal = Math.abs(dx) >= Math.abs(dy);
+  if ((horizontal ? Math.abs(dx) : Math.abs(dy)) < STEP_THRESHOLD) return null;
+
+  let neighbor: number;
+  if (horizontal) {
+    const dir = dx > 0 ? 1 : -1;
+    const col = last % cols;
+    if (col + dir < 0 || col + dir >= cols) return null;
+    neighbor = last + dir;
+  } else {
+    const dir = dy > 0 ? 1 : -1;
+    const row = Math.floor(last / cols);
+    if (row + dir < 0 || row + dir >= rows) return null;
+    neighbor = last + dir * cols;
+  }
+
+  if (path.length > 1 && neighbor === path[path.length - 2]) return path.slice(0, -1);
+  if (path.includes(neighbor) || !canEnter(neighbor)) return null;
+  return [...path, neighbor];
+}
+
+/** Walks one orthogonal tile at a time toward the pointer. Never skips or moves diagonally. */
+function extendTrace(
+  path: number[],
+  fx: number,
+  fy: number,
+  cols: number,
+  rows: number,
+  canEnter: (cell: number) => boolean,
+): number[] {
+  let next = path;
+  for (let guard = 0; guard < cols * rows; guard++) {
+    const stepped = stepToward(next, fx, fy, cols, rows, canEnter);
+    if (!stepped) return next;
+    next = stepped;
+  }
+  return next;
+}
 
 export function Board({ puzzle, progress, disabled, shakeKey, onCommit, onTap, onTraceStart }: BoardProps) {
   const { rows, cols, cells } = puzzle;
@@ -46,32 +96,35 @@ export function Board({ puzzle, progress, disabled, shakeKey, onCommit, onTap, o
     setTrace(next);
   };
 
-  const cellAt = useCallback(
-    (clientX: number, clientY: number, strict: boolean): number | null => {
+  const pointerOnBoard = useCallback(
+    (clientX: number, clientY: number): { x: number; y: number } | null => {
       const rect = boardRef.current?.getBoundingClientRect();
-      if (!rect) return null;
-      const x = ((clientX - rect.left) / rect.width) * cols;
-      const y = ((clientY - rect.top) / rect.height) * rows;
-      const c = Math.floor(x);
-      const r = Math.floor(y);
+      if (!rect || rect.width === 0 || rect.height === 0) return null;
+      return {
+        x: ((clientX - rect.left) / rect.width) * cols,
+        y: ((clientY - rect.top) / rect.height) * rows,
+      };
+    },
+    [cols, rows],
+  );
+
+  const cellAt = useCallback(
+    (clientX: number, clientY: number): number | null => {
+      const point = pointerOnBoard(clientX, clientY);
+      if (!point) return null;
+      const c = Math.floor(point.x);
+      const r = Math.floor(point.y);
       if (c < 0 || r < 0 || c >= cols || r >= rows) return null;
-      if (strict) {
-        const fx = x - c;
-        const fy = y - r;
-        if (fx < EDGE_DEADZONE || fx > 1 - EDGE_DEADZONE || fy < EDGE_DEADZONE || fy > 1 - EDGE_DEADZONE) {
-          return null;
-        }
-      }
       return r * cols + c;
     },
-    [rows, cols],
+    [cols, pointerOnBoard, rows],
   );
 
   const canEnter = (cell: number) => cells[cell] !== null && !locked.has(cell);
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (disabled || (e.pointerType === "mouse" && e.button !== 0)) return;
-    const cell = cellAt(e.clientX, e.clientY, false);
+    const cell = cellAt(e.clientX, e.clientY);
     if (cell === null || !canEnter(cell)) return;
     e.preventDefault();
     e.currentTarget.setPointerCapture(e.pointerId);
@@ -82,16 +135,11 @@ export function Board({ puzzle, progress, disabled, shakeKey, onCommit, onTap, o
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     const current = traceRef.current;
     if (!current.length) return;
-    const cell = cellAt(e.clientX, e.clientY, true);
-    if (cell === null) return;
-    const last = current[current.length - 1];
-    if (cell === last) return;
-    if (current.length > 1 && cell === current[current.length - 2]) {
-      updateTrace(current.slice(0, -1));
-      return;
-    }
-    if (current.includes(cell) || !canEnter(cell) || !isAdjacent(last, cell, cols)) return;
-    updateTrace([...current, cell]);
+    const point = pointerOnBoard(e.clientX, e.clientY);
+    if (!point) return;
+    const next = extendTrace(current, point.x, point.y, cols, rows, canEnter);
+    if (next.length === current.length && next.every((cell, i) => cell === current[i])) return;
+    updateTrace(next);
   };
 
   const finish = () => {

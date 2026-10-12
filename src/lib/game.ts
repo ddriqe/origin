@@ -3,7 +3,7 @@ import { isPalindrome, type Puzzle, type PuzzleWord } from "./puzzles";
 export type Progress = {
   /** Keys of found words, in the order they were found. */
   found: string[];
-  /** Incorrect traces that stay on the board until the player clears them. */
+  /** The miss currently flashing on the board. Cleared automatically after a short delay. */
   misses: number[][];
   /** Number of revealed letters per word key. */
   hints: Record<string, number>;

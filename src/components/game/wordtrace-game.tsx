@@ -28,7 +28,7 @@ function loadProgress(n: number): Progress {
   try {
     const raw = localStorage.getItem(storageKey(n));
     if (!raw) return emptyProgress();
-    return { ...emptyProgress(), ...(JSON.parse(raw) as Partial<Progress>) };
+    return { ...emptyProgress(), ...(JSON.parse(raw) as Partial<Progress>), misses: [] };
   } catch {
     return emptyProgress();
   }
@@ -43,6 +43,15 @@ export function WordTraceGame() {
   const [winOpen, setWinOpen] = useState(false);
   const [shakeKey, setShakeKey] = useState(0);
   const lastTick = useRef<number | null>(null);
+  const missTimer = useRef<number | null>(null);
+
+  const clearMissTimer = () => {
+    if (missTimer.current === null) return;
+    window.clearTimeout(missTimer.current);
+    missTimer.current = null;
+  };
+
+  useEffect(() => clearMissTimer, []);
 
   useEffect(() => {
     const todayNumber = puzzleNumberForDate(new Date());
@@ -61,7 +70,7 @@ export function WordTraceGame() {
   useEffect(() => {
     if (number === null) return;
     try {
-      localStorage.setItem(storageKey(number), JSON.stringify(progress));
+      localStorage.setItem(storageKey(number), JSON.stringify({ ...progress, misses: [] }));
     } catch {
       // Storage can be unavailable (private mode, quota); the game still works without persistence.
     }
@@ -96,6 +105,7 @@ export function WordTraceGame() {
   }, [running]);
 
   const selectPuzzle = useCallback((n: number) => {
+    clearMissTimer();
     const saved = loadProgress(n);
     setNumber(n);
     setProgress(saved);
@@ -137,26 +147,29 @@ export function WordTraceGame() {
         return;
       case "wrong-tiles":
       case "not-a-word":
+        clearMissTimer();
         setProgress((p) => ({
           ...p,
-          misses: [...p.misses.filter((m) => !m.some((c) => path.includes(c))), path],
+          misses: [path],
           missCount: p.missCount + 1,
         }));
         setShakeKey((k) => k + 1);
+        missTimer.current = window.setTimeout(() => {
+          missTimer.current = null;
+          setProgress((p) => ({ ...p, misses: [] }));
+        }, 500);
         toast.error(
           result.kind === "wrong-tiles"
             ? `${result.text} is hidden somewhere else`
             : `${result.text} isn't one of today's words`,
-          { description: "Tap the dashed trace to clear it." },
         );
     }
   };
 
-  const handleTraceStart = (cell: number) => {
+  const handleTraceStart = () => {
     setStarted(true);
-    if (progress.misses.some((m) => m.includes(cell))) {
-      setProgress((p) => ({ ...p, misses: p.misses.filter((m) => !m.includes(cell)) }));
-    }
+    clearMissTimer();
+    setProgress((p) => (p.misses.length ? { ...p, misses: [] } : p));
   };
 
   const handleTap = () => {

@@ -10,13 +10,13 @@ A small grid of letters hides 4–7 words. You find them by dragging from letter
 2. **Use every tile once.** Words never overlap, and no open tile is left over. The word lengths add up to the number of open tiles.
 3. **Read the rows.** The rows under the board show how many words are hidden and how long each one is, shortest first. A correct word locks in with its own colour and fills a matching row.
 4. **Only the exact path counts.** A trace is accepted only if it follows the hidden word's tiles from first letter to last. Palindromes can be traced in either direction. A real word traced on the wrong tiles is a miss.
-5. **Misses stay on the board.** They show as dashed traces until you tap them or trace over them.
+5. **Misses flash.** A wrong trace shows as a dashed line for about half a second, then clears. Starting another trace clears it immediately.
 
 **Hint** reveals the next letter of a word on the board. **Undo** unlocks the last word you found, and **Reset** clears the board. The timer starts on your first move and pauses while the tab is hidden.
 
 ## Features
 
-- Mouse and touch tracing via pointer events. You can backtrack by dragging back onto the previous tile, and tile corners have a dead zone so diagonal swipes don't misfire.
+- Mouse and touch tracing via pointer events. The path follows the direction of the pointer onto the next neighbouring tile, and you can backtrack by dragging back toward the previous one.
 - 7 bundled puzzles (5×5 and 6×6) that rotate daily by local date. Puzzle #1 is dated 1 October 2026. The arrows let you replay past days, and `?n=<number>` links straight to a puzzle.
 - Progress, timer, hints, and misses are saved per puzzle in `localStorage`.
 - A win dialog shows your time, hints, and misses, with shareable result text (native share sheet on mobile, clipboard on desktop).

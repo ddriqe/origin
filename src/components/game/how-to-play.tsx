@@ -13,7 +13,7 @@ import {
 const RULES = [
   "Drag through neighbouring letters: up, down, left, or right. Not diagonally, and not through walls.",
   "Every open tile belongs to one word. The rows show those lengths, shortest first.",
-  "A miss stays on the board as a dashed line. Tap it to clear it.",
+  "A miss flashes as a dashed line, then clears on its own.",
   "Hint reveals the next letter. The arrows replay earlier days.",
 ];
 
