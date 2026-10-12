@@ -32,7 +32,11 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /origin
       - name: Setup Pages
+        id: pages
+        continue-on-error: true
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -45,6 +49,30 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Enable Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  status:
+    if: always()
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Publish deploy result
+        run: |
+          git config user.name "Cursor Agent"
+          git config user.email "cursoragent@cursor.com"
+          git checkout --orphan pages-status
+          git rm -rf . >/dev/null 2>&1 || true
+          printf '%s\n' "build=${{ needs.build.result }}" "deploy=${{ needs.deploy.result }}" "sha=${{ github.sha }}" > result.txt
+          git add result.txt
+          git commit -m "Record Pages deploy result"
+          git push --force origin pages-status
