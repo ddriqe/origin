@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
       <WordTraceGame />
-      <footer className="pb-6 text-center text-xs text-stone-500">
+      <footer className="pb-6 text-center text-xs text-stone-500 max-sm:hidden">
         WordTrace is an independent fan-made puzzle. One new board every day.
       </footer>
     </main>

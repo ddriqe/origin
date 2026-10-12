@@ -8,14 +8,17 @@ export function WordRows({ puzzle, progress }: { puzzle: Puzzle; progress: Progr
   const maxLen = Math.max(...rows.map((r) => r.length));
 
   return (
-    <ol className="flex flex-col items-center gap-1.5" aria-label="Words to find">
+    <ol className="flex flex-col items-center gap-1.5 max-sm:gap-1" aria-label="Words to find">
       {rows.map((row, i) => {
         const color = row.found ? colorFor(row.found.colorIndex) : null;
         return (
           <li
             key={i}
-            className="grid w-full gap-1"
-            style={{ gridTemplateColumns: `repeat(${maxLen}, minmax(0, 1fr))`, maxWidth: `${maxLen * 2.4}rem` }}
+            className="grid w-full gap-1 max-sm:max-w-[min(100%,calc(var(--row-len)*1.65rem))] sm:max-w-[calc(var(--row-len)*2.4rem)]"
+            style={{
+              gridTemplateColumns: `repeat(${maxLen}, minmax(0, 1fr))`,
+              ["--row-len" as string]: maxLen,
+            }}
             aria-label={row.found ? `Found: ${row.found.text}` : `${row.length}-letter word`}
           >
             {Array.from({ length: row.length }, (_, j) => {
@@ -25,7 +28,7 @@ export function WordRows({ puzzle, progress }: { puzzle: Puzzle; progress: Progr
                   key={j}
                   style={color ? { background: color.tile, color: color.ink, transitionDelay: `${j * 40}ms` } : undefined}
                   className={cn(
-                    "flex aspect-square items-center justify-center rounded-md text-sm font-bold uppercase transition-colors duration-300 sm:text-base",
+                    "flex aspect-square items-center justify-center rounded-md text-xs font-bold uppercase transition-colors duration-300 sm:text-base",
                     !color && "border border-dashed border-stone-300 bg-white/60 text-amber-700",
                   )}
                 >

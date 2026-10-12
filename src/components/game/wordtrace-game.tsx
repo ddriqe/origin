@@ -202,8 +202,8 @@ export function WordTraceGame() {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-[30rem] flex-1 flex-col px-4 pb-8 sm:px-6">
-      <header className="flex items-center justify-between py-4">
+    <div className="game-shell mx-auto flex w-full max-w-[30rem] flex-1 flex-col px-4 pb-8 sm:px-6">
+      <header className="flex shrink-0 items-center justify-between py-4 max-sm:py-1.5">
         <div className="flex items-center gap-2">
           <Logo className="size-9" />
           <div className="leading-tight">
@@ -223,7 +223,7 @@ export function WordTraceGame() {
         </div>
       </header>
 
-      <section className="mb-3 flex items-center justify-between rounded-2xl bg-white/70 px-2 py-2 shadow-[0_1px_0_rgba(120,100,80,0.12)] ring-1 ring-stone-200/80">
+      <section className="mb-3 flex shrink-0 items-center justify-between rounded-2xl bg-white/70 px-2 py-2 shadow-[0_1px_0_rgba(120,100,80,0.12)] ring-1 ring-stone-200/80 max-sm:mb-1.5 max-sm:py-1">
         <Button
           variant="ghost"
           size="icon"
@@ -259,7 +259,7 @@ export function WordTraceGame() {
         </Button>
       </section>
 
-      <div className="mb-3 flex items-center justify-between px-1 text-sm">
+      <div className="mb-3 flex shrink-0 items-center justify-between px-1 text-sm max-sm:mb-1.5">
         <span className="flex items-center gap-1.5 font-semibold tabular-nums text-stone-700" aria-label="Elapsed time">
           <Clock className="size-4 text-stone-400" />
           {formatTime(progress.elapsedMs)}
@@ -269,20 +269,22 @@ export function WordTraceGame() {
         </span>
       </div>
 
-      <div className="rounded-3xl bg-[#ebe5dc] p-2 shadow-inner sm:p-3">
-        <Board
-          key={number}
-          puzzle={puzzle}
-          progress={progress}
-          disabled={progress.completed}
-          shakeKey={shakeKey}
-          onCommit={handleCommit}
-          onTap={handleTap}
-          onTraceStart={handleTraceStart}
-        />
+      <div className="board-slot">
+        <div className="board-frame w-full rounded-3xl bg-[#ebe5dc] p-2 shadow-inner sm:p-3">
+          <Board
+            key={number}
+            puzzle={puzzle}
+            progress={progress}
+            disabled={progress.completed}
+            shakeKey={shakeKey}
+            onCommit={handleCommit}
+            onTap={handleTap}
+            onTraceStart={handleTraceStart}
+          />
+        </div>
       </div>
 
-      <div className="mt-3 grid grid-cols-3 gap-2">
+      <div className="mt-3 grid shrink-0 grid-cols-3 gap-2 max-sm:mt-1.5">
         <ControlButton label="Undo" tip="Unlock the last word you found" disabled={!foundCount || progress.completed} onClick={handleUndo}>
           <Undo2 />
         </ControlButton>
@@ -299,7 +301,7 @@ export function WordTraceGame() {
         </ControlButton>
       </div>
 
-      <div className="mt-5">
+      <div className="mt-5 shrink-0 max-sm:mt-2">
         <WordRows puzzle={puzzle} progress={progress} />
       </div>
 

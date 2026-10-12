@@ -32,7 +32,7 @@ const RULES = [
 export function HowToPlay({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="max-h-[calc(100svh-1.5rem)] overflow-y-auto overscroll-contain sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-xl">How to play WordTrace</DialogTitle>
           <DialogDescription>Find every hidden word and cover the whole board.</DialogDescription>
